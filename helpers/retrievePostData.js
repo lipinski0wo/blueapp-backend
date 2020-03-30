@@ -5,7 +5,7 @@ exports.retrievePostData = (req, callback) => {
     body += data;
     if (body.length > 1e7 && !called) {
       called = true;
-      callback(null, new Error('data too big'));
+      callback(null, new Error('data too big').message);
     }
   });
 

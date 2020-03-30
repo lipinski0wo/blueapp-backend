@@ -35,6 +35,6 @@ exports.addComment = function (req, res, reqBody, userId, postId) {
       });
     });
   } catch (err) {
-    send500(req, res, err);
+    send500(req, res, err.message);
   }
 };

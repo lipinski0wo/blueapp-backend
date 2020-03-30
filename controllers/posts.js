@@ -32,10 +32,10 @@ exports.addPost = function (req, res, reqBody, userId) {
 
     executeSql(`SELECT * FROM users WHERE id=${userId}`, (results, error) => {
       if (!error && results.length === 0) {
-        error = new Error('No such user.').message;
+        error = new Error('No such user.');
       }
       if (error) {
-        return send500(req, res, error);
+        return send500(req, res, error.message);
       }
 
       executeSql(`INSERT INTO posts (userId, title, body) VALUES ('${userId}', '${data.title}', '${data.body}')`, (results, error) => {
@@ -46,7 +46,7 @@ exports.addPost = function (req, res, reqBody, userId) {
       });
     });
   } catch (err) {
-    send500(req, res, err);
+    send500(req, res, err.message);
   }
 };
 

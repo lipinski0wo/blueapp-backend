@@ -6,7 +6,7 @@ exports.executeSql = (sql, callback) => {
 
   connection.connect();
 
-  connection.query(sql, (error, results, fields) => {
+  connection.query(sql, (error, results) => {
     if (error) {
       return callback(null, error);
     }

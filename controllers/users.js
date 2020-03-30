@@ -1,6 +1,6 @@
 const { executeSql } = require('../core/db');
 const { sendJson, send500, send404 } = require('../core/httpMsg');
-const { mapDbResponse } = require('../helpers/usersController');
+const { mapDbResponse } = require('../helpers/mapDbResponse');
 
 exports.getUsers = function (req, res) {
   executeSql('SELECT * FROM users', (results, error) => {
